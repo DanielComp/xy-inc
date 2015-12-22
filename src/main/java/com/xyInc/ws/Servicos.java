@@ -53,6 +53,11 @@ public class Servicos {
     				.entity(CadastroResponseStatus.ERRO_COORD_NEGATIVAS.getMensagem())
     				.build();
     	}
+    	if(poi.getNome()==null || poi.getNome().isEmpty()){
+    		return Response.status(CadastroResponseStatus.ERRO_NOME_VAZIO.getHttpStatus())
+    				.entity(CadastroResponseStatus.ERRO_NOME_VAZIO.getMensagem())
+    				.build();
+    	}
     	
     	PontoDeInteresseDAO pontoInteresseDao = new PontoDeInteresseDAO();
     	try{
